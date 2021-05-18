@@ -32,33 +32,35 @@ var app = new Vue({
       {
         src: "https://images.pexels.com/photos/258112/pexels-photo-258112.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
         alt: "Aurora Boreale",
-        color: "#00E3BA",
+        color: "#006490",
       },
       {
         src: "https://images.pexels.com/photos/681467/pexels-photo-681467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
         alt: "Luna Rossa",
-        color: "#FE0435",
+        color: "#7D2732",
       },
     ],
     imageInterval: false,
   },
   methods: {
     nextImage: function () {
-      this.imageIndex == this.images.length - 1
-        ? (this.imageIndex = 0)
-        : this.imageIndex++;
+      this.imageIndex == this.images.length - 1 ? (this.imageIndex = 0) : this.imageIndex++;
     },
     prevImage: function () {
-      this.imageIndex == 0
-        ? (this.imageIndex = this.images.length - 1)
-        : this.imageIndex--;
+      this.imageIndex == 0 ? (this.imageIndex = this.images.length - 1) : this.imageIndex--;
     },
+    intervalFunction: function () {
+      this.imageInterval = setInterval(this.nextImage, 3500);
+    },
+    stopInterval: function () {
+      clearInterval(this.imageInterval);
+    }
   },
   mounted: function () {
-    this.imageInterval = setInterval(this.nextImage, 3500);
+    this.intervalFunction();
   },
   updated: function () {
-    clearInterval(this.imageInterval);
-    this.imageInterval = setInterval(this.nextImage, 3500);
+    this.stopInterval();
+    this.intervalFunction();
   },
 });

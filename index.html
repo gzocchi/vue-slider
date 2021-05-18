@@ -26,14 +26,24 @@
         <section class="slider">
 
             <div class="images">
+
                 <img :src="images[imageIndex].src" :alt="images[imageIndex].alt">
-            </div>
+
+                <span @click="prevImage" class="prev_switch"></span>
+                <span @click="nextImage" class="next_switch"></span>
+
+                <span class="control_interval">
+                    <i @click="stopInterval" class="far fa-pause-circle pause_image"></i> 
+                    <i @click="nextImage" class="far fa-play-circle play_image"></i>
+                </span>    
+                
+             </div>
 
             <div class="controls">
 
                 <div class="prev">
                     <i  @click="prevImage"
-                    :style="{color: images[imageIndex].color}"
+                        :style="{color: images[imageIndex].color}"
                         class="fas fa-chevron-circle-left"></i>
                 </div>
 
@@ -49,7 +59,7 @@
 
                 <div class="next">
                     <i  @click="nextImage"
-                    :style="{color: images[imageIndex].color}"
+                        :style="{color: images[imageIndex].color}"
                         class="fas fa-chevron-circle-right"></i>
                 </div>
 
