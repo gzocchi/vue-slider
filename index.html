@@ -36,11 +36,12 @@
                 </div>
 
                 <div class="circle">
-                    <i class="fas fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
+                    <i  v-for="(image, index) in images"
+                        @click="imageIndex = index"
+                        :class="index == imageIndex ? 'fas' : 'far'"
+                        class="fa-circle">
+                    </i>
+
                 </div>
 
                 <div class="next">
