@@ -33,8 +33,14 @@
                 <span @click="nextImage" class="next_switch"></span>
 
                 <span class="control_interval">
-                    <i @click="stopInterval" class="far fa-pause-circle pause_image"></i> 
-                    <i @click="nextImage" class="far fa-play-circle play_image"></i>
+
+                    <template v-if="pause">
+                        <i @click="playImage" class="far fa-play-circle play_image"></i>
+                    </template>
+                    <template v-if="!pause">
+                        <i @click="pauseImage" class="far fa-pause-circle pause_image"></i> 
+                    </template>       
+                               
                 </span>    
                 
              </div>

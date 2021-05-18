@@ -41,6 +41,7 @@ var app = new Vue({
       },
     ],
     imageInterval: false,
+    pause: false,
   },
   methods: {
     nextImage: function () {
@@ -54,13 +55,20 @@ var app = new Vue({
     },
     stopInterval: function () {
       clearInterval(this.imageInterval);
-    }
+    },
+    pauseImage: function () {
+      this.stopInterval();
+      this.pause = true;
+    },
+    playImage: function () {
+      this.pause = false;
+    },
   },
   mounted: function () {
     this.intervalFunction();
   },
   updated: function () {
     this.stopInterval();
-    this.intervalFunction();
+    this.pause == true ? this.stopInterval() : this.intervalFunction();;
   },
 });
