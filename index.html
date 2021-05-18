@@ -21,22 +21,18 @@
 
     <main id="root">
 
-        <h1>Vue Slider</h1>
+        <h1>{{ title }}</h1>
 
         <section class="slider">
 
             <div class="images">
-                <img src="https://images.pexels.com/photos/258109/pexels-photo-258109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tramonto">
-
-                <!-- <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    alt="Montagne"> -->
-
+                <img :src="images[imageIndex].src" :alt="images[imageIndex].alt">
             </div>
 
             <div class="controls">
 
                 <div class="prev">
-                    <i class="fas fa-chevron-circle-left"></i>
+                    <i @click="prevImage" class="fas fa-chevron-circle-left"></i>
                 </div>
 
                 <div class="circle">
@@ -48,7 +44,7 @@
                 </div>
 
                 <div class="next">
-                    <i class="fas fa-chevron-circle-right"></i>
+                    <i @click="nextImage" class="fas fa-chevron-circle-right"></i>
                 </div>
 
             </div>
