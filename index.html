@@ -21,7 +21,7 @@
 
     <main id="root">
 
-        <h1>{{ title }}</h1>
+        <!-- <h1>{{ title }}</h1> -->
 
         <section class="slider">
 
@@ -32,20 +32,25 @@
             <div class="controls">
 
                 <div class="prev">
-                    <i @click="prevImage" class="fas fa-chevron-circle-left"></i>
+                    <i  @click="prevImage"
+                        :style="images[imageIndex].color"
+                        class="fas fa-chevron-circle-left"></i>
                 </div>
 
                 <div class="circle">
                     <i  v-for="(image, index) in images"
                         @click="imageIndex = index"
                         :class="index == imageIndex ? 'fas' : 'far'"
+                        :style="images[imageIndex].color"
                         class="fa-circle">
                     </i>
 
                 </div>
 
                 <div class="next">
-                    <i @click="nextImage" class="fas fa-chevron-circle-right"></i>
+                    <i  @click="nextImage"
+                        :style="images[imageIndex].color"
+                        class="fas fa-chevron-circle-right"></i>
                 </div>
 
             </div>
