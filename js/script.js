@@ -50,6 +50,9 @@ var app = new Vue({
     prevImage: function () {
       this.imageIndex == 0 ? (this.imageIndex = this.images.length - 1) : this.imageIndex--;
     },
+    goToImage: function (index) {
+     this.imageIndex = index;
+    },
     intervalFunction: function () {
       this.imageInterval = setInterval(this.nextImage, 3500);
     },

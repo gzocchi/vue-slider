@@ -55,7 +55,7 @@
 
                 <div class="circle">
                     <i  v-for="(image, index) in images"
-                        @click="imageIndex = index"
+                        @click="goToImage(index)"
                         :class="index == imageIndex ? 'fas' : 'far'"
                         :style="{color: images[imageIndex].color}"
                         class="fa-circle">
