@@ -57,7 +57,6 @@ var app = new Vue({
       clearInterval(this.imageInterval);
     },
     pauseImage: function () {
-      this.stopInterval();
       this.pause = true;
     },
     playImage: function () {
